@@ -5,9 +5,12 @@ This project implements a simplified lattice-based post-quantum cryptographic (P
 
 Objectives:
 
-•	Implement a simplified lattice-based PQC algorithm on FPGA. 
+•	Implement a simplified lattice-based PQC algorithm on FPGA.
+
 •	Accelerate polynomial multiplication using NTT. 
-•	Perform hardware-based key generation, encryption, and decryption. 
+
+•	Perform hardware-based key generation, encryption, and decryption.
+
 •	Demonstrate secure data transmission using FPGA. 
 ________________________________________
 
@@ -30,40 +33,65 @@ UART TX / LCD / LEDs
 Main Components:
 
 •	UART Receiver & Transmitter 
+
 •	Crypto Engine (Key Generation, Encryption, Decryption) 
+
 •	NTT Accelerator 
+
 •	Memory Module 
+
 •	LCD Display 
+
 •	LED Status Indicators 
 ________________________________________
 
 3. Implementation Approach:
 
-1.	Plaintext is sent from the PC through UART. 
-2.	The Crypto Engine generates the secret/public keys. 
-3.	NTT performs fast polynomial multiplication. 
-4.	Encryption is carried out using the generated keys. 
-5.	The ciphertext is decrypted to recover the original message. 
-6.	The decrypted message is displayed on the LCD, LEDs, and UART. 
+-	Plaintext is sent from the PC through UART.
+-	
+-	The Crypto Engine generates the secret/public keys.
+-	
+-	NTT performs fast polynomial multiplication.
+-	
+-	Encryption is carried out using the generated keys.
+-	 
+-	The ciphertext is decrypted to recover the original message.
+-	 
+-	The decrypted message is displayed on the LCD, LEDs, and UART. 
 ________________________________________
 
 4. Module Descriptions:
 
 top.v	- Integrates all project modules.
+
 crypto_engine.v -	Controls key generation, encryption, and decryption.
+
 lfsr.v -	Generates pseudo-random values for keys.
+
 bank_mem.v - Stores polynomial coefficients and intermediate data.
+
 butterfly.v -	Performs Forward NTT butterfly operations.
+
 inverse_butterfly.v -	Performs Inverse NTT butterfly operations.
+
 mod_add.v -	Modular addition operation.
+
 mod_sub.v -	Modular subtraction operation.
+
 mod_mul.v -	Modular multiplication operation.
+
 twiddle_rom.v -	Stores Forward NTT twiddle factors.
+
 inverse_twiddle_rom.v -	Stores Inverse NTT twiddle factors.
+
 address_generator.v -	Generates addresses for NTT stages.
+
 twiddle_index.v -	Generates twiddle factor indices.
+
 uart_rx.v -	Receives data from PC.
+
 uart_tx.v -	Sends processed data back to PC.
+
 lcd_display.v -	Displays messages on a 16×2 LCD.
 ________________________________________
 
@@ -72,19 +100,29 @@ ________________________________________
 Requirements:
 
 •	Xilinx Vivado 
+
 •	Artix-7 FPGA Board 
+
 •	Python UART GUI (or Serial Terminal) 
+
 •	USB-UART connection 
 
 Steps:
 
-1.	Open the project in Vivado. 
-2.	Add all Verilog source files and constraints. 
-3.	Set top.v as the top module. 
-4.	Run Synthesis, Implementation, and Generate Bitstream. 
-5.	Program the FPGA. 
-6.	Open the UART GUI and send a plaintext character. 
-7.	Observe the encrypted/decrypted output on the UART, LCD, and LEDs. 
+1.	Open the project in Vivado.
+   
+3.	Add all Verilog source files and constraints.
+   
+5.	Set top.v as the top module.
+   
+7.	Run Synthesis, Implementation, and Generate Bitstream.
+   
+9.	Program the FPGA.
+    
+11.	Open the UART GUI and send a plaintext character.
+    
+13.	Observe the encrypted/decrypted output on the UART, LCD, and LEDs.
+     
 ________________________________________
 
 6. Testing:
@@ -92,17 +130,24 @@ ________________________________________
 Test Procedure:
 
 •	Send a plaintext character (e.g., A) through the UART GUI. 
+
 •	Verify that the FPGA performs encryption and decryption. 
+
 •	Confirm that the recovered plaintext matches the original input. 
+
 •	Check the output on the UART terminal, LCD display, and LEDs. 
 ________________________________________
 
 7. Applications:
 
 •	Post-Quantum Cryptography 
+
 •	Secure Embedded Systems 
+
 •	IoT Security 
+
 •	FPGA-Based Cryptographic Accelerators 
+
 •	Secure Communication Systems 
 ________________________________________
 

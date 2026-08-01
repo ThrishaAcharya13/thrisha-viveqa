@@ -48,15 +48,15 @@ ________________________________________
 3. Implementation Approach:
 
 -	Plaintext is sent from the PC through UART.
--	
+	
 -	The Crypto Engine generates the secret/public keys.
--	
+  
 -	NTT performs fast polynomial multiplication.
--	
+  
 -	Encryption is carried out using the generated keys.
--	 
+   
 -	The ciphertext is decrypted to recover the original message.
--	 
+   
 -	The decrypted message is displayed on the LCD, LEDs, and UART. 
 ________________________________________
 
